@@ -29,7 +29,8 @@ h1, h2 {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
+    width: calc(100% - 20px);
+    margin-right: 20px;
 }
 
 .todo-form button {
@@ -40,6 +41,7 @@ h1, h2 {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    width: 100%;
 }
 
 .todo-form button:hover {
@@ -57,26 +59,46 @@ h1, h2 {
     border-radius: 4px;
     margin-bottom: 10px;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: calc(100% - 20px);
+}
+
+.todo-header {
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .todo-title {
-    flex: 1;
     font-weight: bold;
     word-wrap: break-word;
     word-break: break-all;
     max-width: 250px;
+    flex-grow: 1;
     padding-right: 10px;
 }
 
+.todo-description {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    width: 100%;
+}
+
 .todo-status {
-    flex: 1;
+    width: 100px;
     text-align: center;
+    margin-right: 10px;
+}
+
+.todo-actions {
+    display: flex;
+    align-items: center;
 }
 
 .todo-remove-btn, .todo-update-btn {
-    flex: 0.1;
     padding: 5px 8px;
     border: none;
     background-color: #dc3545;
@@ -107,16 +129,7 @@ h1, h2 {
 }
 
 .todo-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.todo-remove-btn, .todo-update-btn {
-    padding: 5px 10px;
-    margin-left: 10px;
+    width: 100%;
 }
 
 button {

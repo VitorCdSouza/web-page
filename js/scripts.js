@@ -12,13 +12,41 @@ document.addEventListener("DOMContentLoaded", () => {
                 data.todos.forEach(todo => {
                     const todoItem = document.createElement("li");
                     todoItem.classList.add("todo-item");
-                    
-                    todoItem.innerHTML = `
-                        <span class="todo-title">${todo.title}</span>
-                        <span class="todo-status">${todo.status}</span>
-                        <button class="todo-remove-btn" onclick="deleteTodo(${todo.id})">Remover</button>
-                        <button class="todo-update-btn" onclick="updateTodoStatus(${todo.id}, '${todo.status}')">Atualizar Status</button>
-                    `;
+
+                    const todoHeader = document.createElement("div");
+                    todoHeader.classList.add("todo-header");
+
+                    const titleElement = document.createElement("span");
+                    titleElement.classList.add("todo-title");
+                    titleElement.textContent = todo.title;
+
+                    const statusElement = document.createElement("span");
+                    statusElement.classList.add("todo-status");
+                    statusElement.textContent = todo.status;
+
+                    const removeButton = document.createElement("button");
+                    removeButton.classList.add("todo-remove-btn");
+                    removeButton.textContent = "Remover";
+                    removeButton.onclick = () => deleteTodo(todo.id);
+
+                    const updateButton = document.createElement("button");
+                    updateButton.classList.add("todo-update-btn");
+                    updateButton.textContent = "Atualizar Status";
+                    updateButton.onclick = () => updateTodoStatus(todo.id, todo.status);
+
+                    const descriptionElement = document.createElement("div");
+                    descriptionElement.classList.add("todo-description");
+                    descriptionElement.textContent = todo.description || "Sem descrição";
+
+                    // adding elements to todo items
+                    todoHeader.appendChild(titleElement);
+                    todoHeader.appendChild(statusElement);
+                    todoHeader.appendChild(removeButton);
+                    todoHeader.appendChild(updateButton);
+
+                    todoItem.appendChild(todoHeader);
+                    todoItem.appendChild(descriptionElement);
+
                     todoListElement.appendChild(todoItem);
                 });
             });
@@ -34,8 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
             description: description
         };
 
+        // reseting error div
         errorMessageElement.style.display = 'none';
-        errorMessageElement.textContent = ''; 
+        errorMessageElement.textContent = '';
 
         fetch("http://127.0.0.1:5000/todos", {
             method: "POST",
@@ -63,7 +92,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // update todo
     window.updateTodoStatus = (todoId, currentStatus) => {
-        const newStatus = currentStatus === "pendente" ? "completa" : "pendente";
+        let newStatus;
+
+        if (currentStatus === "pendente") {
+            newStatus = "incompleta";
+        } else if (currentStatus === "incompleta") {    
+            newStatus = "completa";
+        } else {
+            newStatus = "pendente";
+        }
 
         fetch(`http://127.0.0.1:5000/todos/${todoId}`, {
             method: "PUT",
