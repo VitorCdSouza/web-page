@@ -61,16 +61,65 @@ h1, h2 {
     align-items: center;
 }
 
-.todo-list li button {
-    padding: 5px;
-    background-color: #dc3545;
-    color: #fff;
+.todo-title {
+    flex: 1;
+    font-weight: bold;
+    word-wrap: break-word;
+    word-break: break-all;
+    max-width: 250px;
+    padding-right: 10px;
+}
+
+.todo-status {
+    flex: 1;
+    text-align: center;
+}
+
+.todo-remove-btn, .todo-update-btn {
+    flex: 0.1;
+    padding: 5px 8px;
     border: none;
-    border-radius: 4px;
+    background-color: #dc3545;
+    color: white;
     cursor: pointer;
+    margin-left: 10px;
+    border-radius: 4px;
 }
 
-.todo-list li button:hover {
-    background-color: #c82333;
+.todo-update-btn {
+    background-color: #28a745;
 }
 
+.todo-remove-btn:hover, .todo-update-btn:hover {
+    opacity: 0.8;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: none;
+}
+
+#todos {
+    list-style-type: none;
+    padding: 0;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.todo-remove-btn, .todo-update-btn {
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+button {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
