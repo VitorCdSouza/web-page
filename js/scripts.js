@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // get all todos
     async function loadTodos() {
-        const token = localStorage.getItem("token"); // Certifique-se de que está obtendo o token aqui
+        const token = localStorage.getItem("token");
         console.log("Token:", token);
         if (!token) return;
     
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const response = await fetch("http://127.0.0.1:5000/todos/?per_page=100", {
                 method: 'GET',
                 headers: {
-                    "Authorization": `Bearer ${token}` // Inclua o token aqui
+                    "Authorization": `Bearer ${token}`
                 }
             });
     
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Delete todo
+    // delete todo
     window.deleteTodo = async (todoId) => {
         try {
             const response = await fetch(`http://127.0.0.1:5000/todos/${todoId}`, {
@@ -207,9 +207,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             await response.json();
             loadTodos();
-        });
+        } catch (error) {
+            console.error("Erro ao remover tarefa:", error);
+            errorMessageElement.textContent = error.message;
+            errorMessageElement.style.display = 'block';
+        }
     };
 
-    // Load todos when page starts
     loadTodos();
 });
