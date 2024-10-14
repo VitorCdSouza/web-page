@@ -207,12 +207,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             await response.json();
             loadTodos();
-        } catch (error) {
-            console.error("Erro ao remover tarefa:", error);
-            errorMessageElement.textContent = error.message;
-            errorMessageElement.style.display = 'block';
-        }
+        });
     };
 
+    // Load todos when page starts
     loadTodos();
 });
