@@ -1,48 +1,48 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>To-Do List</title>
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
-        <div class="container">
-            <h1>To-Do List</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
 
-            <!-- error div, changed by js -->
-            <div id="error-message" class="error-message">error</div>
+        <!-- error div, changed by js -->
+        <div id="error-message" class="error-message">error</div>
 
-             <!-- login form -->
-             <div id="login-register-form" class="form-container">
-                <div class="form" id="login-form">
-                    <h2>Login</h2>
-                    <input type="text" id="email" placeholder="Usuário" required>
-                    <input type="password" id="password" placeholder="Senha" required>
-                    <button id="login-btn">Login</button>
-                </div>
-                <div class="form" id="register-form">
-                    <h2>Cadastro</h2>
-                    <input type="text" id="register-email" placeholder="Novo Usuário" required>
-                    <input type="password" id="register-password" placeholder="Senha" required>
-                    <button id="register-btn">Cadastrar</button>
-                </div>
+            <!-- login form -->
+            <div id="login-register-form" class="form-container">
+            <div class="form" id="login-form">
+                <h2>Login</h2>
+                <input type="text" id="email" placeholder="Usuário" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <button id="login-btn">Login</button>
             </div>
-
-            <!-- new todo form -->
-            <div class="todo-form" style="display:block;">
-                <input type="text" id="new-todo-title" placeholder="Nova Tarefa" required>
-                <textarea id="new-todo-description" placeholder="Descrição"></textarea>
-                <button id="add-todo-btn">Adicionar Tarefa</button>
-            </div>
-
-            <!-- todos area -->
-            <div class="todo-list" style="display:block;">
-                <h2>Tarefas</h2>
-                <ul id="todos"></ul>
+            <div class="form" id="register-form">
+                <h2>Cadastro</h2>
+                <input type="text" id="register-email" placeholder="Novo Usuário" required>
+                <input type="password" id="register-password" placeholder="Senha" required>
+                <button id="register-btn">Cadastrar</button>
             </div>
         </div>
 
-        <script src="js/scripts.js"></script>
-    </body>
-    </html>
+        <!-- new todo form -->
+        <div class="todo-form" style="display:block;">
+            <input type="text" id="new-todo-title" placeholder="Nova Tarefa" required>
+            <textarea id="new-todo-description" placeholder="Descrição"></textarea>
+            <button id="add-todo-btn">Adicionar Tarefa</button>
+        </div>
+
+        <!-- todos area -->
+        <div class="todo-list" style="display:block;">
+            <h2>Tarefas</h2>
+            <ul id="todos"></ul>
+        </div>
+    </div>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
