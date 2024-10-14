@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let token = localStorage.getItem("token");
 
-    // Check if user is logged in
+    // check if user is logged in
     if (token) {
         loginRegisterForm.style.display = "none";
         loadTodos();
@@ -101,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 descriptionElement.classList.add("todo-description");
                 descriptionElement.textContent = todo.description || "Sem descrição";
     
-                // Adicionando elementos aos itens de tarefa
                 todoHeader.appendChild(titleElement);
                 todoHeader.appendChild(statusElement);
                 todoHeader.appendChild(removeButton);
@@ -119,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Add new todo
+    // add new todo
     addTodoButton.addEventListener("click", async () => {
         const title = document.getElementById("new-todo-title").value;
         const description = document.getElementById("new-todo-description").value;
@@ -155,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Update todo
+    // update todo
     window.updateTodoStatus = async (todoId, currentStatus) => {
         let newStatus;
 
@@ -172,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}` // Certifique-se de incluir o token
+                    "Authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify({ status: newStatus }),
             });
@@ -197,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const response = await fetch(`http://127.0.0.1:5000/todos/${todoId}`, {
                 method: "DELETE",
                 headers: {
-                    "Authorization": `Bearer ${token}` // Inclua o token aqui também
+                    "Authorization": `Bearer ${token}`
                 },
             });
 
@@ -215,6 +214,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Load todos when page starts
     loadTodos();
 });
