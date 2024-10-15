@@ -3,6 +3,6 @@
 
 > Obs.: commits em inglês.
 
-Página desenvolvida com html, css e javascript puros, conectada a api: [github](https://github.com/VitorCdSouza/todo-api) [deploy aws](https://api.vtrcordeiro.online/).
+Página desenvolvida com html, css e javascript puros, conectada a api: [github](https://github.com/VitorCdSouza/todo-api) e [deploy aws](https://api.vtrcordeiro.online/) (restrições para acesso externo).
 
 Funções simples: login, cadastro, crud de tarefas com atualizaçã do status.
