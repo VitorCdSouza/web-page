@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
     
-        fetch("http://127.0.0.1:5000/login", {
+        fetch("https://api.vtrcordeiro.online/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const registerEmail = document.getElementById("register-email").value;
         const registerPassword = document.getElementById("register-password").value;
 
-        fetch("http://127.0.0.1:5000/register", {
+        fetch("https://api.vtrcordeiro.online/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!token) return;
     
         try {
-            const response = await fetch("http://127.0.0.1:5000/todos/?per_page=100", {
+            const response = await fetch("https://api.vtrcordeiro.online/todos/?per_page=100", {
                 method: 'GET',
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
         errorMessageElement.textContent = '';
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/todos/", {
+            const response = await fetch("https://api.vtrcordeiro.online/todos/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch(`http://127.0.0.1:5000/todos/${todoId}`, {
+            const response = await fetch(`https://api.vtrcordeiro.online/todos/${todoId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // delete todo
     window.deleteTodo = async (todoId) => {
         try {
-            const response = await fetch(`http://127.0.0.1:5000/todos/${todoId}`, {
+            const response = await fetch(`https://api.vtrcordeiro.online/todos/${todoId}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`
